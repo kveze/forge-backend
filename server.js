@@ -3,7 +3,7 @@ import cors from "cors";
 import axios from "axios";
 
 const app = express();
-const OPENROUTER_KEY = "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";
+const OPENROUTER_KEY = "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";
 
 app.use(cors({
   origin: [
@@ -17,7 +17,7 @@ const ask = async (prompt) => {
   const response = await axios.post(
     "https://openrouter.ai/api/v1/chat/completions",
     {
-      model: "tencent/hy3-preview:free",
+      model: "nvidia/nemotron-3-super-120b-a12b:free",
       messages: [{ role: "user", content: prompt }],
     },
     {
