@@ -6,7 +6,10 @@ const app = express();
 const OPENROUTER_KEY = "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";
 
 app.use(cors({
-  origin: 'https://forge-client-mxsd.vercel.app'
+  origin: [
+    'https://magnificent-quokka-1693d1.netlify.app',
+    'https://69ee05ece975148b2fdf15c0--magnificent-quokka-1693d1.netlify.app'
+  ]
 }));
 app.use(express.json());
 
