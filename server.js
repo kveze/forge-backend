@@ -17,7 +17,7 @@ const ask = async (prompt) => {
   const response = await axios.post(
     "https://openrouter.ai/api/v1/chat/completions",
     {
-      model: "openai/gpt-oss-120b:free",
+      model: "google/gemma-4-31b-it:free",
       messages: [{ role: "user", content: prompt }],
     },
     {
@@ -115,10 +115,6 @@ app.post("/recovery", async (req, res) => {
     console.error("ERR:", err.response?.data || err.message);
     res.status(500).json({ plan: "Ошибка: " + JSON.stringify(err.response?.data || err.message) });
   }
-});
-
-app.listen(3000, () => {
-  console.log("Сервер: http://localhost:3000");
 });
 
 const PORT = process.env.PORT || 3000;
