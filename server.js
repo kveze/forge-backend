@@ -6,10 +6,7 @@ const app = express();
 const OPENROUTER_KEY = "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";
 
 app.use(cors({
-  origin: [
-    'https://magnificent-quokka-1693d1.netlify.app',
-    'https://69ee05ece975148b2fdf15c0--magnificent-quokka-1693d1.netlify.app'
-  ]
+  origin: process.env.ALLOWED_ORIGIN || '*'
 }));
 app.use(express.json());
 
