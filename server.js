@@ -6,6 +6,7 @@ const app = express();
 const OPENROUTER_KEY = "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";
 
 app.use(cors());
+app.options('*', cors());
 app.use(express.json());
 
 const ask = async (prompt) => {
