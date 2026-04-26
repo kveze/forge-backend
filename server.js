@@ -5,8 +5,13 @@ import axios from "axios";
 const app = express();
 const OPENROUTER_KEY = "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";
 
-app.use(cors());
-app.options('*', cors());
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  if (req.method === 'OPTIONS') return res.sendStatus(200);
+  next();
+});
 app.use(express.json());
 
 const ask = async (prompt) => {
