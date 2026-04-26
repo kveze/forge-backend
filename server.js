@@ -15,20 +15,21 @@ app.use((req, res, next) => {
 app.use(express.json());
 
 const ask = async (prompt) => {
-  const response = await axios.post(
-    "https://openrouter.ai/api/v1/chat/completions",
-    {
-      model: "google/gemma-4-31b-it:free",
-      messages: [{ role: "user", content: prompt }],
-    },
-    {
-      headers: {
-        "Authorization": `Bearer ${OPENROUTER_KEY}`,
-        "Content-Type": "application/json",
-      }
-    }
-  );
-  return response.data.choices[0].message.content;
+  return `Понедельник
+Грудь, Трицепс
+1. Отжимания — 4 × 12 (отдых 90с)
+2. Отжимания на брусьях — 4 × 10 (отдых 90с)
+3. Планка — 3 × 60с
+
+Среда
+Спина, Бицепс
+1. Подтягивания — 4 × 8 (отдых 90с)
+2. Австралийские подтягивания — 3 × 12 (отдых 60с)
+
+Пятница
+Ноги
+1. Приседания — 4 × 15 (отдых 90с)
+2. Выпады — 3 × 12 (отдых 60с)`;
 };
 
 // Тренировки
